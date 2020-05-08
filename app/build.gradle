@@ -1,0 +1,105 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+def propsRelease = new Properties()
+propsRelease.load(new FileInputStream(rootProject.file("release.properties")))
+
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+    }
+}
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.aubay.pokemon"
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode Releases.versionCode
+        versionName Releases.versionName
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+
+        release {
+            storeFile rootProject.file(propsRelease.keyStore)
+            storePassword "aubaypoke"
+            keyAlias "aubaypoke"
+            keyPassword "aubaypoke"
+            v2SigningEnabled false
+
+        }
+    }
+
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            debuggable true
+            zipAlignEnabled true
+            ext.alwaysUpdateBuildId = false
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    // dynamicFeatures = [Features.home]
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(Modules.core)
+    //api project(Modules.cache)
+    //api project(Modules.network)
+    //api project(Modules.presentation)
+
+    implementation KoinLibraries.koinAndroid
+    implementation KoinLibraries.koinViewModel
+    implementation KoinLibraries.koinScope
+
+    implementation Libraries.anko
+
+    implementation FirebaseLibraries.core
+    implementation FirebaseLibraries.analytics
+
+    implementation SupportLibraries.constraintLayout
+
+    implementation NavigationLibraries.navigationktxFragment
+    implementation NavigationLibraries.navigationFragment
+    implementation NavigationLibraries.navigationUI
+    implementation NavigationLibraries.navigationktxUI
+    implementation NavigationLibraries.navigationPaging
+
+    kapt DatabaseLibraries.roomCompiler
+    implementation DatabaseLibraries.roomKtx
+    implementation DatabaseLibraries.roomRuntime
+
+    implementation NetworkLibraries.gsonConverter
+
+}

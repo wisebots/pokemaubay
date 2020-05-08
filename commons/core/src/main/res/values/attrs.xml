@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ProgressBarWidget">
+        <attr name="barType" format="reference"/>
+        <attr name="text" format="string"/>
+        <attr name="file" format="string"/>
+        <attr name="dimming" format="boolean"/>
+        <attr name="backgroundLoad" format="string"/>
+        <attr name="androidtextColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="enlarge"/>
+    </declare-styleable>
+</resources>
