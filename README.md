@@ -16,6 +16,7 @@ Some of the sample features:
 - NavigationView
 - Snackbar
 - FloatActionButton to send email for me
+- Menu toolbar to open Linkedin Profile
 - UI/Unit Testing
 
 Pre-requisites
@@ -41,9 +42,9 @@ Libraries
 Archtecture Modular MVVM
 --------------
 
-Modules: App, Home
-Features: Home
-Subfeatures: Show description of pokemon (api), Favorite pokemon (webhook)
+- Modules: App, Home
+- Features: Home
+- Subfeatures: Show description of pokemon (api), Favorite pokemon (webhook), Open Linkedin Profile (menu toolbar)
 
 PS: Included images only to limited use.
 
