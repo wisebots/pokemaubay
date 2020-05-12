@@ -16,12 +16,10 @@ buildscript {
 
 android {
     compileSdkVersion Versions.compileSdk
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     defaultConfig {
         applicationId "com.aubay.pokemon"
         minSdkVersion Versions.minSdk
@@ -30,6 +28,7 @@ android {
         versionName Releases.versionName
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "com.aubay.pokemon.home.TIRunner"
         javaCompileOptions {
             annotationProcessorOptions {
                 includeCompileClasspath true
@@ -37,7 +36,6 @@ android {
         }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
     signingConfigs {
 
         release {
@@ -49,7 +47,6 @@ android {
 
         }
     }
-
     buildTypes {
 
         release {
@@ -64,20 +61,20 @@ android {
             ext.alwaysUpdateBuildId = false
         }
     }
-
+    sourceSets {
+        androidTest.java.srcDirs += "src/test-common/java"
+        test.java.srcDirs += "src/test-common/java"
+    }
     testOptions {
         unitTests.returnDefaultValues = true
     }
+    dynamicFeatures = [Features.home]
 
-    // dynamicFeatures = [Features.home]
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(Modules.core)
-    //api project(Modules.cache)
-    //api project(Modules.network)
-    //api project(Modules.presentation)
 
     implementation KoinLibraries.koinAndroid
     implementation KoinLibraries.koinViewModel

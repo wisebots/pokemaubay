@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -35,3 +37,18 @@ fun ImageView.loadImage(url: String) = Glide.with(this).load(url).into(this)
 
 fun ImageView.loadImageRound(url: String) =
     Glide.with(this).load(url).apply(RequestOptions.circleCropTransform()).into(this)
+
+fun RecyclerView.setInfiniteScrolling(layoutManager: GridLayoutManager, action: () -> Unit) {
+    this.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
+            val visibleItemCount: Int = layoutManager.childCount
+            val totalItemCount: Int = layoutManager.itemCount
+            val firstVisibleItemPosition: Int = layoutManager.findFirstVisibleItemPosition()
+
+            if (visibleItemCount + firstVisibleItemPosition >= totalItemCount && firstVisibleItemPosition >= 0) {
+                action()
+            }
+        }
+    })
+}

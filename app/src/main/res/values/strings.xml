@@ -1,3 +1,9 @@
-<resources>
-    <string name="app_name">Pokem Aubay</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">Pokemon Test</string>
+
+    <string name="slogan_title">Just a test Android Application</string>
+
+    <string name="module_feature_home_title" tools:ignore="ExtraTranslation">Home</string>
+
 </resources>

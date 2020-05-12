@@ -1,0 +1,112 @@
+apply plugin: 'com.android.dynamic-feature'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+def propsRelease = new Properties()
+propsRelease.load(new FileInputStream(rootProject.file("release.properties")))
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public'}
+        maven { url 'https://jitpack.io' }
+        google()
+        jcenter()
+    }
+}
+
+android {
+    compileSdkVersion Versions.compileSdk
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+    }
+    signingConfigs {
+
+        release {
+            v2SigningEnabled false
+        }
+    }
+    buildTypes {
+        release {
+            debuggable false
+            zipAlignEnabled true
+
+        }
+        debug {
+            debuggable true
+            zipAlignEnabled true
+        }
+    }
+    sourceSets {
+        androidTest.java.srcDirs += "src/test-common/java"
+        test.java.srcDirs += "src/test-common/java"
+    }
+}
+
+dependencies {
+    implementation project(Modules.app)
+
+    api project(Modules.core)
+
+    implementation SupportLibraries.design
+    implementation SupportLibraries.cardview
+    implementation SupportLibraries.appcompat
+    implementation SupportLibraries.recyclerview
+    implementation SupportLibraries.swiperefreshlayout
+    implementation SupportLibraries.coordinatorlayout
+    implementation SupportLibraries.constraintLayout
+
+    implementation KoinLibraries.koinAndroid
+    implementation KoinLibraries.koinViewModel
+    implementation KoinLibraries.koinScope
+
+    implementation Libraries.anko
+    implementation Libraries.ankoCommons
+    implementation Libraries.ankoDesign
+
+    implementation NavigationLibraries.navigationRuntime
+    implementation NavigationLibraries.navigationFragment
+    implementation NavigationLibraries.navigationUI
+    implementation NavigationLibraries.navigationktxFragment
+    implementation NavigationLibraries.navigationktxUI
+    implementation NavigationLibraries.navigationPaging
+
+    implementation ArchitectureLibraries.lifecycleExtensions
+
+    implementation ReactiveLibraries.rxjava
+    implementation ReactiveLibraries.rxkotlin
+
+    implementation NetworkLibraries.gsonConverter
+    implementation NetworkLibraries.loggingInterceptor
+    implementation NetworkLibraries.okhttp
+    implementation NetworkLibraries.retrofit
+    implementation NetworkLibraries.retrofitCoroutines
+
+    implementation DatabaseLibraries.roomKtx
+    kapt DatabaseLibraries.roomCompiler
+    implementation DatabaseLibraries.roomRuntime
+
+    // UNIT TESTING
+    testImplementation TestLibraries.junit
+    testImplementation TestLibraries.assertjCore
+    testImplementation TestLibraries.mockitoKotlin
+    testImplementation TestLibraries.mockitoInline
+    testImplementation TestLibraries.lifecycleTesting
+    testImplementation TestLibraries.koinTesting
+    testImplementation TestLibraries.mockwebserver
+
+    // INSTRUMENTATION TESTING
+    androidTestImplementation InstrumentationTestLibraries.espressoJunit
+    androidTestImplementation InstrumentationTestLibraries.espressoCore
+    androidTestImplementation InstrumentationTestLibraries.espressoContrib
+    androidTestImplementation InstrumentationTestLibraries.espressoIntents
+    androidTestImplementation InstrumentationTestLibraries.koinTest
+    androidTestImplementation InstrumentationTestLibraries.mockwebserver
+    androidTestImplementation InstrumentationTestLibraries.coreTesting
+}

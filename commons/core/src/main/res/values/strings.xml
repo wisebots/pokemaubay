@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">core</string>
+
+    <string name="no_internet_error_message">No Internet connection available. Please try again</string>
+
 </resources>
