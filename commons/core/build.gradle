@@ -65,4 +65,27 @@ dependencies {
     implementation NetworkLibraries.retrofit
 
     implementation TestLibraries.junit
+
+    implementation InstrumentationTestLibraries.koinTest
+    implementation InstrumentationTestLibraries.mockwebserver
+    implementation InstrumentationTestLibraries.coreTesting
+
+    // UNIT TESTING
+    testImplementation TestLibraries.junit
+    testImplementation TestLibraries.assertjCore
+    testImplementation TestLibraries.mockitoKotlin
+    testImplementation TestLibraries.mockitoInline
+    testImplementation TestLibraries.lifecycleTesting
+    testImplementation TestLibraries.koinTesting
+
+    // INSTRUMENTATION TESTING
+    androidTestImplementation InstrumentationTestLibraries.espressoJunit
+    androidTestImplementation InstrumentationTestLibraries.espressoCore
+    androidTestImplementation InstrumentationTestLibraries.espressoContrib
+    androidTestImplementation InstrumentationTestLibraries.espressoIntents
+    androidTestImplementation InstrumentationTestLibraries.koinTest
+    androidTestImplementation InstrumentationTestLibraries.mockwebserver
+    androidTestImplementation InstrumentationTestLibraries.coreTesting
+
+
 }

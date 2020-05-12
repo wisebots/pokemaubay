@@ -1,9 +1,6 @@
 object Modules {
     val app = ":app"
     val core = ":commons:core"
-    val cache = ":commons:cache"
-    val network = ":commons:network"
-    val presentation = ":commons:presentation"
 }
 
 object Features {
@@ -27,7 +24,6 @@ object Versions {
 
     val firebaseAuth = "16.0.4"
     val firebaseCore = "17.2.2"
-    val firebaseCrashlytics = "17.0.0-beta01"
     val firebaseAppDistribution = "1.1.0"
 
     val appcompat = "1.2.0-alpha01"
@@ -38,8 +34,6 @@ object Versions {
     val swiperefreshlayout = "1.1.0-alpha03"
     val coordinatorLayout = "1.1.0"
 
-    val ktx = "1.0.0-alpha1"
-
     val navigation = "2.1.0-beta02"
     val paging = "2.1.0"
 
@@ -47,20 +41,23 @@ object Versions {
     val rxjava = "2.2.16"
     val rxkotlin = "2.4.0"
     val retrofit = "2.7.0"
+    val retrofitCoroutines = "0.9.2"
     val room = "2.1.0"
-    val okhttp = "4.2.2"
-    val espresso = "1.0.0"
+    val okhttp3 = "4.2.2"
+    val espresso = "3.2.0"
     val glide = "4.11.0"
     val rxpaper = "1.4.0"
     val lifecycle = "2.1.0"
     val lifecycleCompiler = "2.1.0"
     val coroutines = "1.2.1"
-    val koin = "2.1.0-alpha-8"
+    val koin = "2.1.5"
+    val koinTest = "1.0.2"
     val architecture = "2.2.0-rc03"
 
     val playCore = "1.6.4"
 
     val junit = "4.12"
+    val junitExt = "1.1.1"
     val assertjCore = "3.14.0"
     val mockitoKotlin = "2.1.0"
     val mockitoInline = "3.2.4"
@@ -97,13 +94,11 @@ object ReactiveLibraries {
 
 object NetworkLibraries {
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    val rxjavaAdapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
-    val moshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     val gsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
-    val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
-    val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
-    val mockwebserver = "com.squareup.okhttp3:mockwebserver:${Versions.okhttp}"
-    val espresso = "com.jakewharton.espresso:okhttp3-idling-resource:${Versions.espresso}"
+    val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp3}"
+    val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp3}"
+    val retrofitCoroutines = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.retrofitCoroutines}"
+
 }
 
 object DatabaseLibraries {
@@ -152,7 +147,6 @@ object FirebaseLibraries {
     val auth = "com.google.firebase:firebase-auth:${Versions.firebaseAuth}"
     val core = "com.google.firebase:firebase-core:${Versions.firebaseCore}"
     val analytics = "com.google.firebase:firebase-analytics:${Versions.firebaseCore}"
-    val crashlytics = "com.google.firebase:firebase-crashlytics:${Versions.firebaseCrashlytics}"
     val appdistribution = "com.google.firebase:firebase-appdistribution-gradle:${Versions.firebaseAppDistribution}"
 }
 
@@ -162,4 +156,16 @@ object TestLibraries {
     val mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlin}"
     val mockitoInline = "org.mockito:mockito-inline:${Versions.mockitoInline}"
     val lifecycleTesting = "androidx.arch.core:core-testing:${Versions.lifecycle}"
+    val koinTesting = "org.koin:koin-test:${Versions.koinTest}"
+    val mockwebserver = "com.squareup.okhttp3:mockwebserver:${Versions.okhttp3}"
+}
+
+object InstrumentationTestLibraries {
+    val espressoJunit = "androidx.test.ext:junit:${Versions.junitExt}"
+    val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    val espressoContrib = "androidx.test.espresso:espresso-contrib:${Versions.espresso}"
+    val espressoIntents = "androidx.test.espresso:espresso-intents:${Versions.espresso}"
+    val mockwebserver = "com.squareup.okhttp3:mockwebserver:${Versions.okhttp3}"
+    val koinTest = "org.koin:koin-test:${Versions.koin}"
+    val coreTesting = "android.arch.core:core-testing:${Versions.junitExt}"
 }

@@ -23,7 +23,7 @@ interface GetPokemonDescriptionUseCase : BaseUseCase<Int, Int, PokeDescriptionLo
 }
 
 class GetPokemonDescriptionUseCaseImpl(private val pokeDescriptionProvider: PokeDescriptionProvider) : GetPokemonDescriptionUseCase {
-    override suspend fun invoke(id: Int, pokedexId: Int): ResultDomain<PokeDescriptionLocal> = pokeDescriptionProvider.getDescriptionPoke(pokedexId)
+    override suspend fun invoke(id: Int, text: Int): ResultDomain<PokeDescriptionLocal> = pokeDescriptionProvider.getDescriptionPoke(text)
 }
 
 interface FavoriteUseCase : WebhookUseCase<PokeInfo, Boolean> {

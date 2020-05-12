@@ -8,7 +8,6 @@ def propsRelease = new Properties()
 propsRelease.load(new FileInputStream(rootProject.file("release.properties")))
 
 buildscript {
-
     repositories {
         maven { url 'https://maven.fabric.io/public'}
         maven { url 'https://jitpack.io' }
@@ -19,24 +18,20 @@ buildscript {
 
 android {
     compileSdkVersion Versions.compileSdk
-
     compileOptions {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
-
     defaultConfig {
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
     }
-
     signingConfigs {
 
         release {
             v2SigningEnabled false
         }
     }
-
     buildTypes {
         release {
             debuggable false
@@ -47,6 +42,10 @@ android {
             debuggable true
             zipAlignEnabled true
         }
+    }
+    sourceSets {
+        androidTest.java.srcDirs += "src/test-common/java"
+        test.java.srcDirs += "src/test-common/java"
     }
 }
 
@@ -61,6 +60,7 @@ dependencies {
     implementation SupportLibraries.recyclerview
     implementation SupportLibraries.swiperefreshlayout
     implementation SupportLibraries.coordinatorlayout
+    implementation SupportLibraries.constraintLayout
 
     implementation KoinLibraries.koinAndroid
     implementation KoinLibraries.koinViewModel
@@ -85,16 +85,28 @@ dependencies {
     implementation NetworkLibraries.gsonConverter
     implementation NetworkLibraries.loggingInterceptor
     implementation NetworkLibraries.okhttp
+    implementation NetworkLibraries.retrofit
+    implementation NetworkLibraries.retrofitCoroutines
 
     implementation DatabaseLibraries.roomKtx
     kapt DatabaseLibraries.roomCompiler
     implementation DatabaseLibraries.roomRuntime
 
+    // UNIT TESTING
     testImplementation TestLibraries.junit
     testImplementation TestLibraries.assertjCore
     testImplementation TestLibraries.mockitoKotlin
     testImplementation TestLibraries.mockitoInline
     testImplementation TestLibraries.lifecycleTesting
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation TestLibraries.koinTesting
+    testImplementation TestLibraries.mockwebserver
 
+    // INSTRUMENTATION TESTING
+    androidTestImplementation InstrumentationTestLibraries.espressoJunit
+    androidTestImplementation InstrumentationTestLibraries.espressoCore
+    androidTestImplementation InstrumentationTestLibraries.espressoContrib
+    androidTestImplementation InstrumentationTestLibraries.espressoIntents
+    androidTestImplementation InstrumentationTestLibraries.koinTest
+    androidTestImplementation InstrumentationTestLibraries.mockwebserver
+    androidTestImplementation InstrumentationTestLibraries.coreTesting
 }
