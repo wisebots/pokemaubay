@@ -69,7 +69,8 @@ android {
         unitTests.returnDefaultValues = true
     }
 
-    // dynamicFeatures = [Features.home]
+    dynamicFeatures = [Features.home]
+
 }
 
 dependencies {

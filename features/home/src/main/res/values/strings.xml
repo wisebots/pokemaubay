@@ -1,0 +1,29 @@
+<resources>
+
+    <string name="home_email_default">adrianomsccomp@gmail.com</string>
+
+    <string name="home_subject_default">Incredible app</string>
+
+    <string name="home_description_default">I really, really love this app</string>
+
+    <string name="home_email_chooser_title">Sending email</string>
+
+    <string name="home_title_poke_description">Pokédex</string>
+
+    <string name="no_internet_error_message">No Internet connection available. Please try again</string>
+
+    <string name="favorited_message">Pokémon favorited successful</string>
+
+    <string name="unfavorited_message">Pokémon unfavorited successful</string>
+
+    <string name="cd_before">Before pokémon</string>
+
+    <string name="cd_next">Next pokémon</string>
+
+    <string name="cd_close">Close pokémon description</string>
+
+    <string name="pokedex_subtitle">Pokédex entry</string>
+
+    <string name="menu_title">Add Linkedin Profile</string>
+
+</resources>

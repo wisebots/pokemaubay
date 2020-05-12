@@ -3,6 +3,8 @@
     <color name="color_white">#FFFFFF</color>
     <color name="color_black">#000000</color>
 
+    <color name="color_white_opacity">#00FFFFFF</color>
+
     <color name="color_grey_50">#FAFAFA</color>
 
     <color name="color_grey_100">#F5F5F5</color>
@@ -16,4 +18,6 @@
     <color name="color_red_wine">#b0191a</color>
 
     <color name="color_grey_alpha">#40212121</color>
+    <color name="color_grey_title_alpha">#60212121</color>
+
 </resources>

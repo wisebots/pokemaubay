@@ -30,15 +30,13 @@ object Versions {
     val firebaseCrashlytics = "17.0.0-beta01"
     val firebaseAppDistribution = "1.1.0"
 
-    val fabric = "1.31.2"
-
     val appcompat = "1.2.0-alpha01"
     val design = "1.2.0-alpha03"
     val supportLayout = "1.1.3"
     val cardview = "1.0.0"
     val recyclerview = "1.2.0-alpha01"
     val swiperefreshlayout = "1.1.0-alpha03"
-    val maps = "15.0.1"
+    val coordinatorLayout = "1.1.0"
 
     val ktx = "1.0.0-alpha1"
 
@@ -46,21 +44,17 @@ object Versions {
     val paging = "2.1.0"
 
     val kotlin = "1.3.61"
-    val timber = "4.7.1"
     val rxjava = "2.2.16"
     val rxkotlin = "2.4.0"
     val retrofit = "2.7.0"
     val room = "2.1.0"
     val okhttp = "4.2.2"
     val espresso = "1.0.0"
-    val glide = "4.10.0"
+    val glide = "4.11.0"
     val rxpaper = "1.4.0"
-    val paperdb = "2.6"
-    val moshi = "1.8.0"
     val lifecycle = "2.1.0"
     val lifecycleCompiler = "2.1.0"
     val coroutines = "1.2.1"
-    val crashlytics = "2.10.1"
     val koin = "2.1.0-alpha-8"
     val architecture = "2.2.0-rc03"
 
@@ -146,6 +140,7 @@ object SupportLibraries {
     val cardview = "androidx.cardview:cardview:${Versions.cardview}"
     val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     val swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swiperefreshlayout}"
+    val coordinatorlayout = "androidx.coordinatorlayout:coordinatorlayout:${Versions.coordinatorLayout}"
 }
 
 object GoogleLibraries {

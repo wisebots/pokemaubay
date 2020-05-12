@@ -28,6 +28,10 @@ abstract class BaseActivity : AppCompatActivity() {
 
     abstract fun subscribeBottomNavigation()
 
+    abstract fun onNextPressed()
+
+    abstract fun onBeforePressed()
+
     fun showError(@StringRes errorMessage: Int, rootView: View) = snackbar(errorMessage, rootView)
 
     fun showError(errorMessage: String?, rootView: View) = snackbar(errorMessage ?: EMPTY_STRING, rootView)
