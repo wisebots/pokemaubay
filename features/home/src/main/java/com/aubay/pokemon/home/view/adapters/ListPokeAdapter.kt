@@ -29,7 +29,7 @@ class ListPokeAdapter constructor(private val itemClick: (Int) -> Unit,
             holder.itemView.apply {
                 if(pokedexId>0) ivImage.loadImage("${IMAGE_POKE_URL}${pokedexId}.png")
                 tvName.text = pokemon.name.capitalize()
-                tvDescription.text = "$pokedex_subtitle #${pokedexId}"
+                tvDescription.text = "${resources.getString(pokedex_subtitle)} #${pokedexId}"
             }
             holder.itemView.let { view ->
                 view.setOnClickListener { itemClick.invoke(pokedexId) }
